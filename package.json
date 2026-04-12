@@ -20,10 +20,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./newsletter-form-client": {
-      "types": "./dist/plugins/mailerlite-newsletter/newsletter-form-client.d.ts",
-      "import": "./dist/plugins/mailerlite-newsletter/newsletter-form-client.js"
     }
   },
   "scripts": {

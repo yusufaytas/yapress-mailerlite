@@ -1,9 +1,7 @@
-'use client';
-
 import type { Plugin } from "../../types/plugin";
 import { PACKAGE_VERSION } from "../../version";
 import type { MailerLiteNewsletterConfig } from "./types";
-import NewsletterForm from "./newsletter-form-client";
+import { NewsletterForm } from "./newsletter-form";
 
 function buildComponent(config: MailerLiteNewsletterConfig) {
   return function MailerLiteNewsletterPluginComponent() {
