@@ -1,0 +1,55 @@
+{
+  "name": "@yusufaytas/yapress-mailerlite",
+  "version": "0.1.0",
+  "description": "MailerLite newsletter plugin for Yapress.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusufaytas/yapress-mailerlite.git"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "check": "tsc --noEmit",
+    "lint": "eslint .",
+    "sync-version": "node ./scripts/sync-version.mjs",
+    "test": "vitest run"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "yapress",
+    "mailerlite",
+    "newsletter",
+    "plugin"
+  ],
+  "author": "Yusuf Aytas",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.0.0",
+    "globals": "^17.5.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.58.1",
+    "vitest": "^3.2.4"
+  }
+}

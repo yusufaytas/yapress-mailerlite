@@ -1,0 +1,229 @@
+.root {
+  position: relative;
+}
+
+.footer {
+  width: min(calc(100% - 1rem), var(--max-width));
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.afterPost {
+  margin: 2.5rem auto 0;
+  max-inline-size: 100%;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.footer .inner {
+  padding: 0;
+}
+
+.afterPost .inner {
+  gap: 0.75rem;
+}
+
+.content,
+.formWrap {
+  position: relative;
+  z-index: 1;
+}
+
+.formWrap {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.footer .formWrap {
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--border) 86%, transparent);
+  border-radius: calc(var(--radius-lg) - 0.2rem);
+  background: color-mix(in srgb, var(--accent-soft) 22%, var(--surface));
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.description,
+.note,
+.message {
+  margin: 0.5rem 0 0;
+}
+
+.description,
+.note {
+  color: var(--muted);
+}
+
+.description {
+  max-width: 48rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.note {
+  font-size: 0.88rem;
+}
+
+.afterPost .eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0;
+}
+
+.afterPost .title,
+.afterPost .description,
+.afterPost .note {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.afterPost .title {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.afterPost .description,
+.afterPost .note {
+  color: var(--muted);
+}
+
+.afterPost .formWrap {
+  gap: 0.6rem;
+}
+
+.form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.afterPost .form {
+  gap: 0.6rem;
+}
+
+.input {
+  width: 100%;
+  min-height: 2.35rem;
+  padding: 0.58rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--border) 96%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--surface) 82%, var(--bg) 18%);
+  color: var(--text);
+  font: inherit;
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.input:focus-visible,
+.button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 60%, white 40%);
+  outline-offset: 2px;
+}
+
+.input:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  appearance: none;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-height: 2.35rem;
+  padding: 0.58rem 0.9rem;
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.buttonIcon {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.button:hover .buttonIcon {
+  opacity: 1;
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+  transform: none;
+}
+
+.message {
+  grid-column: 1 / -1;
+  color: color-mix(in srgb, white 92%, var(--bg) 8%);
+}
+
+.messageSuccess {
+}
+
+.messageError {
+}
+
+@media (min-width: 48rem) {
+  .footer .inner,
+  .afterPost .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+    align-items: center;
+    gap: 1rem 1.25rem;
+  }
+
+  .afterPost .content {
+    display: grid;
+    align-content: start;
+    gap: 0.2rem;
+  }
+
+  .afterPost .button {
+    width: 100%;
+    min-width: 0;
+    white-space: nowrap;
+  }
+}
