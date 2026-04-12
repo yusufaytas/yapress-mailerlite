@@ -1,4 +1,14 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+vi.mock(
+  "next/dynamic",
+  () => ({
+    default: () => function MockDynamicComponent() {
+      return null;
+    },
+  }),
+  { virtual: true },
+);
 
 import { createMailerLiteNewsletterPlugin } from "./plugin";
 import type { MailerLiteNewsletterConfig } from "./types";

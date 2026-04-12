@@ -1,5 +1,4 @@
 export { subscribeWithMailerLite, validateSubscribePayload } from "./plugins/mailerlite-newsletter/api";
-export { NewsletterForm } from "./plugins/mailerlite-newsletter/newsletter-form";
 export { createMailerLiteNewsletterPlugin } from "./plugins/mailerlite-newsletter/plugin";
 export type {
   MailerLiteNewsletterConfig,

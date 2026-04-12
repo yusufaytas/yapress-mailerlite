@@ -1,8 +1,17 @@
+import dynamic from "next/dynamic";
+
 import type { Plugin } from "../../types/plugin";
 import { PACKAGE_VERSION } from "../../version";
 
-import { NewsletterForm } from "./newsletter-form";
 import type { MailerLiteNewsletterConfig } from "./types";
+
+const NewsletterForm = dynamic(
+  () =>
+    import("./newsletter-form-client").then(
+      (module) => module.NewsletterForm,
+    ),
+  { ssr: false },
+);
 
 function buildComponent(
   config: MailerLiteNewsletterConfig,

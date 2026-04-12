@@ -20,10 +20,14 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./newsletter-form-client": {
+      "types": "./dist/plugins/mailerlite-newsletter/newsletter-form-client.d.ts",
+      "import": "./dist/plugins/mailerlite-newsletter/newsletter-form-client.js"
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --clean",
+    "build": "tsup",
     "check": "tsc --noEmit",
     "lint": "eslint .",
     "sync-release-base": "node ./scripts/sync-release-base.mjs",
@@ -42,7 +46,8 @@
   "author": "Yusuf Aytas",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^19.0.0"
+    "react": "^19.0.0",
+    "next": "^15.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
