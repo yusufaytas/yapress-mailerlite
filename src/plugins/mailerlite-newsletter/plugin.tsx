@@ -1,3 +1,5 @@
+'use client';
+
 import type { Plugin } from "../../types/plugin";
 import { PACKAGE_VERSION } from "../../version";
 import type { MailerLiteNewsletterConfig } from "./types";
