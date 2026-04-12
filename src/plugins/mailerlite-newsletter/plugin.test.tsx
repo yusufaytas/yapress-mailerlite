@@ -1,14 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
-
-vi.mock(
-  "next/dynamic",
-  () => ({
-    default: () => function MockDynamicComponent() {
-      return null;
-    },
-  }),
-  { virtual: true },
-);
+import { describe, expect, it } from "vitest";
 
 import { createMailerLiteNewsletterPlugin } from "./plugin";
 import type { MailerLiteNewsletterConfig } from "./types";
@@ -16,10 +6,11 @@ import { PACKAGE_VERSION } from "../../version";
 
 const baseConfig: MailerLiteNewsletterConfig = {
   enabled: true,
-  apiToken: "token",
-  groupId: "group",
+  form: {
+    actionUrl:
+      "https://assets.mailerlite.com/jsonp/2262555/forms/184541525793834716/subscribe",
+  },
   placement: {
-    footer: true,
     afterPost: true,
   },
   ui: {
@@ -28,23 +19,25 @@ const baseConfig: MailerLiteNewsletterConfig = {
 };
 
 describe("createMailerLiteNewsletterPlugin", () => {
-  it("registers components for enabled placements", () => {
+  it("registers afterPost component when enabled", () => {
     const plugin = createMailerLiteNewsletterPlugin(baseConfig);
 
     expect(plugin.enabled).toBe(true);
     expect(plugin.version).toBe(PACKAGE_VERSION);
-    expect(plugin.components?.footerEnd).toHaveLength(1);
     expect(plugin.components?.afterPost).toHaveLength(1);
+    expect(plugin.components?.footerEnd).toBeUndefined();
   });
 
-  it("disables the plugin when required MailerLite credentials are missing", () => {
+  it("disables the plugin when the hosted form action URL is missing", () => {
     const plugin = createMailerLiteNewsletterPlugin({
       ...baseConfig,
-      apiToken: undefined,
+      form: {
+        ...baseConfig.form,
+        actionUrl: undefined,
+      },
     });
 
     expect(plugin.enabled).toBe(false);
-    expect(plugin.components?.footerEnd).toBeUndefined();
     expect(plugin.components?.afterPost).toBeUndefined();
   });
 });

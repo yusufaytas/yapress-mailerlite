@@ -9,15 +9,22 @@ export interface MailerLiteNewsletterUiConfig {
   privacyNote?: string;
 }
 
+export interface MailerLiteNewsletterFormConfig {
+  actionUrl?: string;
+  emailFieldName?: string;
+  nameFieldName?: string;
+  submitValue?: string;
+  antiCsrfValue?: string;
+  target?: "_blank" | "_self";
+}
+
 export interface MailerLiteNewsletterPlacementConfig {
-  footer?: boolean;
   afterPost?: boolean;
 }
 
 export interface MailerLiteNewsletterConfig {
   enabled: boolean;
-  apiToken?: string;
-  groupId?: string;
+  form: MailerLiteNewsletterFormConfig;
   order?: number;
   placement?: MailerLiteNewsletterPlacementConfig;
   ui: MailerLiteNewsletterUiConfig;
