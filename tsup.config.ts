@@ -1,17 +1,11 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: [
-    "src/index.ts",
-    "src/plugins/mailerlite-newsletter/plugin.tsx",
-  ],
+  entry: ["src/**/*.ts", "src/**/*.tsx", "!src/**/*.test.tsx", "!src/**/*.d.ts"],
   format: ["esm"],
   dts: true,
   clean: true,
-  splitting: true,
-  esbuildOptions(options) {
-    options.banner = {
-      js: '"use client";',
-    };
-  },
+  bundle: false,
+  splitting: false,
+  outDir: "dist",
 });
