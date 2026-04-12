@@ -8,6 +8,8 @@ GitHub Actions publishes this package to npm from the manual `Release Package` w
 
 Run the `Release Package` workflow manually and choose a `patch`, `minor`, or `major` version bump. The workflow updates `package.json`, `package-lock.json`, and the exported plugin version, runs lint, typecheck, tests, and build once, publishes to npm, then commits and tags the successful release.
 
+Before bumping, the workflow syncs its release base with the highest version already published on npm. That prevents a stale repository version from trying to publish a lower version than the registry already has.
+
 This repository is configured for npm Trusted Publishing via GitHub Actions OIDC.
 
 Before the workflow can publish, configure the package on npm to trust:

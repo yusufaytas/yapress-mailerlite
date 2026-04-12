@@ -1,6 +1,6 @@
 {
   "name": "@yusufaytas/yapress-mailerlite",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MailerLite newsletter plugin for Yapress.",
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "build": "tsup src/index.ts --format esm --dts --clean",
     "check": "tsc --noEmit",
     "lint": "eslint .",
+    "sync-release-base": "node ./scripts/sync-release-base.mjs",
     "sync-version": "node ./scripts/sync-version.mjs",
     "test": "vitest run"
   },
