@@ -109,7 +109,7 @@ export function NewsletterForm({
   const isFormDisabled = state === "success" || state === "submitting";
 
   return (
-    <section className="social-share">
+    <section className="footer-plugin-separator">
       <div className="article-meta-grid">
         <div className="article-meta-group">
           <div className="article-taxonomy-label">{eyebrow || "Newsletter"}</div>
