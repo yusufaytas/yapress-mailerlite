@@ -18,7 +18,6 @@ function buildComponent(config: MailerLiteNewsletterConfig) {
         emailPlaceholder={config.ui.emailPlaceholder}
         namePlaceholder={config.ui.namePlaceholder}
         buttonText={config.ui.buttonText}
-        successMessage={config.ui.successMessage}
         privacyNote={config.ui.privacyNote}
       />
     );

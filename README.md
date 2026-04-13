@@ -53,7 +53,6 @@ export const config: MailerLiteNewsletterConfig = {
     emailPlaceholder: 'you@example.com',
     namePlaceholder: 'First name (optional)',
     buttonText: 'Subscribe',
-    successMessage: 'Thanks for subscribing.',
     privacyNote: 'No spam. Unsubscribe any time.',
   },
 };
@@ -100,7 +99,6 @@ type MailerLiteNewsletterConfig = {
     emailPlaceholder?: string;
     namePlaceholder?: string;
     buttonText?: string;
-    successMessage?: string;
     privacyNote?: string;
   };
 };
@@ -111,6 +109,7 @@ type MailerLiteNewsletterConfig = {
 - **Client-side only**: Form submits directly to MailerLite, no server-side code needed
 - **Remembers subscription**: Uses localStorage to hide form after successful subscription
 - **Disabled state**: Form inputs and button are disabled after submission (not hidden)
+- **Clear submit feedback**: Button shows a loading spinner while submitting and a success state after completion
 - **Yapress theme integration**: Uses yapress CSS variables for consistent styling
 - **Responsive**: Two-column layout on desktop, stacked on mobile
 
@@ -118,7 +117,7 @@ type MailerLiteNewsletterConfig = {
 
 - The plugin disables itself when `form.actionUrl` is missing
 - The form posts directly to your MailerLite hosted form endpoint using `mode: 'no-cors'`
-- After successful submission, the form is disabled but remains visible with the success message
+- After successful submission, the form keeps the submitted values visible, stays disabled, and shows a success state on the button
 - The form only hides on page reload if the user has already subscribed (checked via localStorage)
 
 ## Release

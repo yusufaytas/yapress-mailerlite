@@ -5,7 +5,6 @@ export interface MailerLiteNewsletterUiConfig {
   emailPlaceholder?: string;
   namePlaceholder?: string;
   buttonText?: string;
-  successMessage?: string;
   privacyNote?: string;
 }
 
